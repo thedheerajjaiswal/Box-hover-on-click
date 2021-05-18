@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 10px black;
+        }
+
+        .container {
+
+            position: relative;
+            left: 40%;
+            top: 15rem;
+            z-index: 10;
+        }
+
+
+        .box1 {
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        /* .box1:hover {
+            z-index: 100;
+
+        }
+
+        .box2:hover {
+            z-index: 100;
+        }
+
+        .box3:hover {
+            z-index: 100;
+        }
+
+        .box4:hover {
+            z-index: 100;
+        } */
+
+
+
+
+        .box2 {
+            background-color: darkgoldenrod;
+            position: absolute;
+            left: 120px;
+            top: 0;
+            z-index: 2;
+        }
+
+        .box3 {
+            background-color: red;
+            position: absolute;
+            top: 105px;
+            left: 0;
+            z-index: 3;
+        }
+
+        .box4 {
+            background-color: teal;
+            position: absolute;
+            top: 105px;
+            left: 120px;
+            z-index: 4;
+        }
+
+        .box5 {
+            background-color: limegreen;
+            position: relative;
+            left: 60px;
+            top: 52.5px;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="box box1" id="1" onclick="onTop1()">1</div>
+        <div class="box box2" id="2" onclick="onTop2()">2</div>
+        <div class="box box3" id="3" onclick="onTop3()">3</div>
+        <div class="box box4" id="4" onclick="onTop4()">4</div>
+        <div class="box box5">5</div>
+    </div>
+
+
+    <script>
+        var box1 = document.getElementById("1");
+        var isBox1OnTop = false;
+
+        var box2 = document.getElementById("2");
+        var isBox2OnTop = false;
+
+        var box3 = document.getElementById("3");
+        var isBox3OnTop = false;
+
+        var box4 = document.getElementById("4");
+        var isBox4OnTop = false;
+
+        const onTop1 = () => {
+            isBox1OnTop ? box1.style.zIndex = 1 : box1.style.zIndex = 10;
+            isBox1OnTop = !isBox1OnTop;
+        }
+
+        const onTop2 = () => {
+            isBox2OnTop ? box2.style.zIndex = 2 : box2.style.zIndex = 10;
+            isBox2OnTop = !isBox2OnTop;
+            onTop1();
+        }
+
+        const onTop3 = () => {
+            isBox3OnTop ? box3.style.zIndex = 3 : box3.style.zIndex = 10;
+            isBox3OnTop = !isBox3OnTop;
+            onTop2();
+        }
+
+        const onTop4 = () => {
+            isBox4OnTop ? box4.style.zIndex = 4 : box4.style.zIndex = 10;
+            isBox4OnTop = !isBox4OnTop;
+            onTop3();
+        }
+
+        // function box1() {
+        //     let box1 = document.querySelector(".box1");
+        //     box1.style.zIndex = 1;
+        //     box1.style.zIndex = 1 ? box1.style.zIndex = 10 : box1.style.zIndex = 1;
+        // }
+
+    </script>
+</body>
+
+</html>
